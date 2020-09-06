@@ -8,4 +8,7 @@ public class Cannon extends Equipment {
     public int getValue() {
         return purchasePrice / 3;
     }
+
+
+
 }
