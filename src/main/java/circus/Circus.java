@@ -10,6 +10,9 @@ import circus.stuff.Ladder;
 
 import java.util.ArrayList;
 
+import java.util.Arrays;
+
+
 public class Circus {
     private static Animal[] animals = {
             new Duck("Drake"),
@@ -46,6 +49,7 @@ public class Circus {
         makeAnimalsTalk();
         System.out.println("Total value of equipments " + calculateValue(equipments));
         System.out.println("Total value of animals " + calculateValue(animals));
+
         Cage<Duck> duckCage = new Cage<>();
         Duck duck = new Duck("hueye");
         duckCage.lockUp(duck);
@@ -60,5 +64,23 @@ public class Circus {
         for(Cage c: cages) {
             c.release();
         }
+
+        ArrayList<Animal> animalArrayList = new ArrayList<>(Arrays.asList(animals));
+        animalArrayList.add(new Duck("Goose"));
+        animalArrayList.add(new Parrot("Dolly"));
+
+        Duck louie = new Duck("Louie");
+        animalArrayList.add(louie);
+
+        for (Animal a: animalArrayList) {
+            System.out.println(a);
+        }
+        System.out.println("Length of array = "+ animalArrayList.size());
+        animalArrayList.sort(Animal.AnimalNameComparator);
+        for (Animal a: animalArrayList) {
+            System.out.println(a);
+        }
+        System.out.println("Index of Louie: "+ animalArrayList.indexOf(louie));
+
     }
 }
